@@ -33,62 +33,7 @@
 
 #endif
 
-#define COTE_MIN (WINDOW_WIDTH < WINDOW_HEIGHT ? WINDOW_WIDTH : WINDOW_HEIGHT)
-typedef int ENTIER;
-ENTIER x;
-int dir(){
-    srand(time(0));
-    x=rand()%4;
-    return x;
-}
-
-void sup_g(int li,int co,int t)
-
-{//supprime cloison quand on tourne a gauche
-
-        set_drawing_color(color_WHITE);
-
-        draw_line(li-(t/2), co-(t/2), li-(t/2), co+(t/2));
-
-         update_graphics();
-
-
-
-}
-
-void sup_d(int li,int co,int t)
-
-{//supprime cloison quand on tourne a droite
-
-    set_drawing_color(color_WHITE);
-
-    draw_line(li+(t/2), co-(t/2), li+(t/2), co+(t/2)); update_graphics();
-
-}
-
-void sup_haut(int li,int co,int t)
-
-{
-
-    set_drawing_color(color_WHITE);
-
-        draw_line(li-(t/2), co+(t/2), li+(t/2), co+(t/2));
-
-         update_graphics();
-
-}
-
-void sup_bas(int li,int co,int t)
-
-{
-
-    set_drawing_color(color_WHITE);
-
-        draw_line(li-(t/2), co-(t/2), li+(t/2), co-(t/2));
-
-         update_graphics();
-
-}
+#include "lib.h"
 
 int main(void){
 
@@ -131,12 +76,9 @@ char index(char c,int x)
     return c;
 
 }
-
-	start_graphics();
-
-
-
-	set_drawing_color(color_BLACK);
+	
+ini_graph();
+//initialisation procédures graphiques
 
 //coordonnées des marges à prendre pour centrer
 
