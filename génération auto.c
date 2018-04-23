@@ -69,47 +69,8 @@
 
 
 #define COTE_MIN (WINDOW_WIDTH < WINDOW_HEIGHT ? WINDOW_WIDTH : WINDOW_HEIGHT)
-
-typedef int ENTIER;
-ENTIER x;
-int dir(){
-    int dire[4]={key_LEFT,key_RIGHT,key_DOWN,key_UP};
-    int i=rand()%4;
-    x=dire[i];
-    return x;
-}
-void sup_g(int li,int co,int t)
-{//supprime cloison quand on tourne a gauche
-    set_drawing_color(color_WHITE);
-    draw_line(li-(t/2), co-(t/2), li-(t/2), co+(t/2));
-    update_graphics();
-}
-void sup_d(int li,int co,int t)
-{//supprime cloison quand on tourne a droite
-    set_drawing_color(color_WHITE);
-    draw_line(li+(t/2), co-(t/2), li+(t/2), co+(t/2)); update_graphics();
-}
-void sup_haut(int li,int co,int t)
-{
-    set_drawing_color(color_WHITE);
-    draw_line(li-(t/2), co+(t/2), li+(t/2), co+(t/2));
-    update_graphics();
-}
-
-void sup_bas(int li,int co,int t)
-{
-    set_drawing_color(color_WHITE);
-    draw_line(li-(t/2), co-(t/2), li+(t/2), co-(t/2));
-    update_graphics();
-}
-
-long factorielle(int n)
-{
-   if(n == 0)
-      return 1;
-   else
-      return n*factorielle(n-1);
-}
+#include "lib.h"
+//partie des fonctions utiles au programme
 
 int main(void){
 
@@ -124,8 +85,7 @@ int main(void){
 int marge_c=(WINDOW_WIDTH-(t*n))/2;
 int marge_h=(WINDOW_HEIGHT-(t*m))/2;
 //début de l'interface graphique
-start_graphics();
-set_drawing_color(color_BLACK);
+ini_graph();
 //coordonnées des marges à prendre pour centrer
 xn1=marge_c;
 yn1=marge_h;
