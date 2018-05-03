@@ -20,7 +20,7 @@ void score(int i)
    {
     set_font(font_HELVETICA_18);
     set_drawing_color(color_BLACK);
-    draw_printf(320,242,"GAGNE! Score: %d",i);
+    draw_printf(320,242,"GAGNE! Score: %d/100",i);
     if(i>=60){
         draw_printf(320,190,"Vous etes digne de Thesee!!!");
         draw_printf(320,150,"A bientot dans une prochaine quete!");
