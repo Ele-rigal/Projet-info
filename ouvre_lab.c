@@ -5,69 +5,18 @@
 #include <time.h>
 
 /* pour compiler ce fichier:  gcc –o cocotte cocotte.c libgraphique.c –lglut –lGLU –lGL –lm */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* indispensable pour compiler un programme utilisant la bibliothèque graphique: */
-
-
-
-#include "libgraphique.h"
-
-
-
-#include "libgraphique_fonts.h"
-
-
-
+//#include "libgraphique.h"
+//#include "libgraphique_fonts.h"
 #include "libgraphique.c"
-
-
-
 #include <unistd.h>
-
-
-
-#include <stdio.h>
-
-
-
-#ifdef __unix__
-
-
-
+//#include <stdio.h>
+/*#ifdef __unix__
 # include <unistd.h>
-
-
-
 #elif defined _WIN32
-
-
-
 # include <windows.h>
-
-
-
 #define sleep(x) Sleep(1000 * x)
-
-
-
-#endif
-
-
-
+#endif */
 #define COTE_MIN (WINDOW_WIDTH < WINDOW_HEIGHT ? WINDOW_WIDTH : WINDOW_HEIGHT)
 int main(void)
 {
@@ -79,7 +28,7 @@ scanf("%s",rep);
 FILE* fic=fopen(rep,"r");
 start_graphics();
 set_drawing_color(color_BLACK);
-fscanf(fic,"%d %d %d %d",&n,&t,&finli,&finco);
+fscanf(fic,"%d %d %d %d %d %d",&n,&t,&co,&li,&finli,&finco);
 m=n;
 //calcul pour centrer la grille
 int marge_c=(WINDOW_WIDTH-(t*n))/2;
@@ -112,7 +61,6 @@ for(i=1;i<=m+1;i++){
 do{	set_drawing_color(color_WHITE);
 	x=fscanf(fic,"%d %d %d %d",&x1,&y1,&x2,&y2);
 	draw_line(x1,y1,x2,y2);
-	update_graphics();
 }
 while(x==4);
 set_drawing_color(color_WHITE);
