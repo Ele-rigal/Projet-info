@@ -6,17 +6,17 @@
 
 /* pour compiler ce fichier:  gcc –o cocotte cocotte.c libgraphique.c –lglut –lGLU –lGL –lm */
 /* indispensable pour compiler un programme utilisant la bibliothèque graphique: */
-#include "libgraphique.h"
-#include "libgraphique_fonts.h"
+//#include "libgraphique.h" pour code::blocks
+//#include "libgraphique_fonts.h" pour code::blocks
 #include "libgraphique.c"
-#include <unistd.h>
+//#include <unistd.h>
 //#include <stdio.h>
-#ifdef __unix__
+/*#ifdef __unix__
 # include <unistd.h>
 #elif defined _WIN32
 # include <windows.h>
 #define sleep(x) Sleep(1000 * x)
-#endif
+#endif   pour code::blocks */
 #define COTE_MIN (WINDOW_WIDTH < WINDOW_HEIGHT ? WINDOW_WIDTH : WINDOW_HEIGHT)
 typedef int ENTIER;
 ENTIER x;
