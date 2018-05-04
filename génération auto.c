@@ -5,77 +5,28 @@
 #include <time.h>
 
 /* pour compiler ce fichier:  gcc –o cocotte cocotte.c libgraphique.c –lglut –lGLU –lGL –lm */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* indispensable pour compiler un programme utilisant la bibliothèque graphique: */
-
-
-
 #include "libgraphique.h"
-
-
-
-#include "libgraphique_fonts.h"
-
-
-
-#include "libgraphique.c"
-
-
-
+//#include "libgraphique_fonts.h"
+//#include "libgraphique.c"
 #include <unistd.h>
-
-
-
-#include <stdio.h>
-
-
-
-#ifdef __unix__
-
-
-
+//#include <stdio.h>
+/*#ifdef __unix__
 # include <unistd.h>
-
-
-
 #elif defined _WIN32
-
-
-
 # include <windows.h>
-
-
-
 #define sleep(x) Sleep(1000 * x)
-
-
-
-#endif
-
-
-
+#endif*/
 #define COTE_MIN (WINDOW_WIDTH < WINDOW_HEIGHT ? WINDOW_WIDTH : WINDOW_HEIGHT)
 
 typedef int ENTIER;
 ENTIER x;
-void ecrit_init(FILE* fic,int n,int t,int finco,int finli)
+void ecrit_init(FILE* fic,int n,int t,int co,int li,int finco,int finli)
 {
 	fprintf(fic,"%d \n",n);
 	fprintf(fic,"%d \n",t);
+	fprintf(fic,"%d \n",co);
+	fprintf(fic,"%d \n",li);
 	fprintf(fic,"%d \n",finco);
 	fprintf(fic,"%d \n",finli);
 }
@@ -111,7 +62,8 @@ void sup_d(FILE* fichier,int li,int co,int t)
     int y2=co+(t/2);
      ecrit(fichier,x1,y1,x2,y2);
     set_drawing_color(color_WHITE);
-    draw_line(x1,y1,x2,y2); update_graphics();
+    draw_line(x1,y1,x2,y2);
+ update_graphics();
 }
 void sup_haut(FILE* fichier,int li,int co,int t)
 {   int x1=li-(t/2);
@@ -209,7 +161,7 @@ int h=factorielle(n)-n*n;
 int b=factorielle(n)-n*n;
 
 set_drawing_color(color_BLACK);
-ecrit_init(fichier,n,t,finco,finli);
+ecrit_init(fichier,n,t,co,li,finco,finli);
 sup_g(fichier,li,co,t);
 while((li<=finli)&&(co>=finco))
 {
